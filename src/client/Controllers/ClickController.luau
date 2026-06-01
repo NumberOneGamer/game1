@@ -104,7 +104,7 @@ function ClickController:loadUpgradeData(): ()
 	end
 end
 
-function ClickController:onUpgradeDataLoaded(data: { { name: string, cost: number }, { [string]: number } }): ()
+function ClickController:onUpgradeDataLoaded(data: { [string]: any }): ()
 	print("Upgrade data loaded")
 end
 
