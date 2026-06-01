@@ -13,6 +13,7 @@ RebirthService.__index = RebirthService
 function RebirthService:Init(): ()
 	Network.createEvent("PerformRebirth")
 	Network.createEvent("RebirthCompleted")
+	Network.createEvent("RebirthFailed")
 	Network.createFunction("GetRebirthStatus")
 
 	Network.addEventMiddleware("PerformRebirth", Network.rateLimit(3, 5))

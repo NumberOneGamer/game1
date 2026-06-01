@@ -12,6 +12,7 @@ UpgradeService.__index = UpgradeService
 function UpgradeService:Init(): ()
 	Network.createEvent("PurchaseUpgrade")
 	Network.createEvent("UpgradePurchased")
+	Network.createEvent("UpgradeFailed")
 	Network.createFunction("GetUpgradeData")
 
 	Network.addEventMiddleware("PurchaseUpgrade", Network.rateLimit(5, 1))

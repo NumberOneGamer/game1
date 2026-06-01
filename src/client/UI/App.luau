@@ -10,10 +10,10 @@ local Computed = Fusion.Computed
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 
-local MainHUD = require(script.Pages.MainHUD)
-local Shop = require(script.Pages.Shop)
-local Upgrades = require(script.Pages.Upgrades)
-local Button = require(script.Elements.Button)
+local MainHUD = require(script.Parent.Pages.MainHUD)
+local Shop = require(script.Parent.Pages.Shop)
+local Upgrades = require(script.Parent.Pages.Upgrades)
+local Button = require(script.Parent.Elements.Button)
 
 local App = {}
 App.__index = App

@@ -40,6 +40,7 @@ local function getLeaderboard(): { LeaderboardEntry }
 end
 
 function LeaderboardService:Init(): ()
+	Network.createEvent("LeaderboardUpdate")
 	Network.createFunction("GetLeaderboard")
 	Network.onFunction("GetLeaderboard", function(player: Player): { LeaderboardEntry }
 		return getLeaderboard()

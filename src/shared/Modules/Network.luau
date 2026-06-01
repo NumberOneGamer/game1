@@ -40,7 +40,7 @@ local function getRemoteFolder(): Instance
 	return remoteFolder :: Instance
 end
 
-local function runMiddleware(middleware: { MiddlewareFn }, player: Player, ...: any): (boolean, ... any)
+local function runMiddleware(middleware: { MiddlewareFn }, player: Player, ...: any): (boolean, { any })
 	local args = { ... }
 	for _, fn in middleware do
 		local ok, result = fn(player, table.unpack(args))
@@ -49,7 +49,7 @@ local function runMiddleware(middleware: { MiddlewareFn }, player: Player, ...: 
 		end
 		args = { result }
 	end
-	return true, table.unpack(args)
+	return true, args
 end
 
 function Network.createEvent(eventId: string): ()

@@ -17,6 +17,9 @@ local autoClickerLoops: { [Player]: thread } = {}
 function ClickService:Init(): ()
 	Network.createEvent("Click")
 	Network.createEvent("AutoClickUpdate")
+	Network.createEvent("ClickUpdate")
+	Network.createEvent("RebirthAvailable")
+	Network.createEvent("Notification")
 
 	Network.addEventMiddleware("Click", Network.rateLimit(20, 1))
 

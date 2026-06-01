@@ -13,6 +13,7 @@ SizeService.__index = SizeService
 
 function SizeService:Init(): ()
 	Network.createEvent("UpdateCharacterSize")
+	Network.createEvent("RequestSizeUpdate")
 
 	Players.PlayerAdded:Connect(function(player: Player)
 		player.CharacterAdded:Connect(function(character: Model)
