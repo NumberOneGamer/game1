@@ -203,7 +203,7 @@ end
 
 -- Rate limiting middleware factory
 function Network.rateLimit(maxCalls: number, window: number): MiddlewareFn
-	local callCounts: { [Player]: { number, number } } = {}
+	local callCounts = { } :: { [Player]: any }
 	return function(player: Player, ...: any): (boolean, ... any)
 		local now = os.clock()
 		local entry = callCounts[player]
