@@ -124,8 +124,8 @@ function App:createPageContainer(): Instance
 		[Children] = {
 			scope:New "Frame" {
 				Name = "MainHUD",
-				Visible = scope:Computed(function(): boolean
-					return currentPage:Get() == "MainHUD"
+				Visible = scope:Computed(function(use): boolean
+					return use(currentPage) == "MainHUD"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
 				BackgroundTransparency = 1,
@@ -133,8 +133,8 @@ function App:createPageContainer(): Instance
 			},
 			scope:New "Frame" {
 				Name = "Shop",
-				Visible = scope:Computed(function(): boolean
-					return currentPage:Get() == "Shop"
+				Visible = scope:Computed(function(use): boolean
+					return use(currentPage) == "Shop"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
 				BackgroundTransparency = 1,
@@ -142,8 +142,8 @@ function App:createPageContainer(): Instance
 			},
 			scope:New "Frame" {
 				Name = "Upgrades",
-				Visible = scope:Computed(function(): boolean
-					return currentPage:Get() == "Upgrades"
+				Visible = scope:Computed(function(use): boolean
+					return use(currentPage) == "Upgrades"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
 				BackgroundTransparency = 1,

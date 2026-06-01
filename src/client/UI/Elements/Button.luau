@@ -36,11 +36,11 @@ return function(props: ButtonProps): Instance
 		merged[key] = value
 	end
 	local isHovered = scope:Value(false)
-	local bgColor = scope:Computed(function(): Color3
+	local bgColor = scope:Computed(function(use): Color3
 		if merged.Disabled then
 			return Color3.fromRGB(40, 40, 40)
 		end
-		if isHovered:Get() then
+		if use(isHovered) then
 			return merged.BackgroundColor:Lerp(Color3.fromRGB(255, 255, 255), 0.15)
 		end
 		return merged.BackgroundColor
