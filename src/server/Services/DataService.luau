@@ -51,7 +51,7 @@ function DataService:Init(): ()
 	game:BindToClose(function()
 		for _, session in sessions do
 			self:savePlayerData(session.player, true)
-		end)
+		end
 	end)
 	task.spawn(function()
 		while task.wait(GameConfig.AutoSaveInterval) do
