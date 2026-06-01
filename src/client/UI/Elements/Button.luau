@@ -3,8 +3,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
 local New = Fusion.New
-local Value = Fusion.Value
-local Computed = Fusion.Computed
 local OnEvent = Fusion.OnEvent
 local Children = Fusion.Children
 
@@ -33,12 +31,13 @@ local defaultProps: ButtonProps = {
 }
 
 return function(props: ButtonProps): Instance
+	local scope = Fusion.scoped(Fusion)
 	local merged = table.clone(defaultProps)
 	for key, value in props do
 		merged[key] = value
 	end
-	local isHovered = Value(false)
-	local bgColor = Computed(function(): Color3
+	local isHovered = scope:Value(false)
+	local bgColor = scope:Computed(function(): Color3
 		if merged.Disabled then
 			return Color3.fromRGB(40, 40, 40)
 		end

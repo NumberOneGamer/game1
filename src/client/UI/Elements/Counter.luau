@@ -3,7 +3,6 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
 local New = Fusion.New
-local Computed = Fusion.Computed
 local Children = Fusion.Children
 
 export type CounterProps = {
@@ -27,11 +26,12 @@ local defaultProps: CounterProps = {
 }
 
 return function(props: CounterProps): Instance
+	local scope = Fusion.scoped(Fusion)
 	local merged = table.clone(defaultProps)
 	for key, value in props do
 		merged[key] = value
 	end
-	local displayValue = Computed(function(): string
+	local displayValue = scope:Computed(function(): string
 		return tostring(merged.Value())
 	end)
 	return New "Frame" {

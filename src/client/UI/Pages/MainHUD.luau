@@ -5,7 +5,6 @@ local Fusion = require(ReplicatedStorage.Packages.Fusion)
 local New = Fusion.New
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
-local Computed = Fusion.Computed
 
 local ClickController = require(script.Parent.Parent.Parent.Controllers.ClickController)
 local Counter = require(script.Parent.Parent.Elements.Counter)

@@ -4,9 +4,10 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
+local scope = Fusion.scoped(Fusion)
 local New = Fusion.New
-local Value = Fusion.Value
-local Computed = Fusion.Computed
+local Value = scope.Value
+local Computed = scope.Computed
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 
