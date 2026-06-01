@@ -6,8 +6,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
 local scope = Fusion.scoped(Fusion)
 local New = Fusion.New
-local Value = scope.Value
-local Computed = scope.Computed
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 
@@ -21,13 +19,13 @@ App.__index = App
 
 type AppInstance = {
 	screenGui: ScreenGui?,
-	currentPage: typeof(Value.new("")),
+	currentPage: any,
 }
 
 function App.new(): AppInstance
 	return setmetatable({
 		screenGui = nil,
-		currentPage = Value("MainHUD"),
+		currentPage = scope:Value("MainHUD"),
 	}, App)
 end
 
@@ -127,7 +125,7 @@ function App:createPageContainer(): Instance
 		[Children] = {
 			New "Frame" {
 				Name = "MainHUD",
-				Visible = Computed(function(): boolean
+				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "MainHUD"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
@@ -136,7 +134,7 @@ function App:createPageContainer(): Instance
 			},
 			New "Frame" {
 				Name = "Shop",
-				Visible = Computed(function(): boolean
+				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "Shop"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
@@ -145,7 +143,7 @@ function App:createPageContainer(): Instance
 			},
 			New "Frame" {
 				Name = "Upgrades",
-				Visible = Computed(function(): boolean
+				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "Upgrades"
 				end),
 				Size = UDim2.new(1, 0, 1, 0),
