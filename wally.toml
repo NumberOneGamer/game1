@@ -1,0 +1,11 @@
+[package]
+name = "siefm/game-1"
+version = "0.1.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Promise = "evaera/promise@4.0.0"
+Fusion = "elttob/fusion@0.3.0"
+
+[server-dependencies]
