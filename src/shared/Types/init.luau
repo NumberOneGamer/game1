@@ -50,3 +50,5 @@ export type NetworkPacket = {
 	data: any,
 	timestamp: number,
 }
+
+return {} -- Types module: runtime value needed for ModuleScript requirement
