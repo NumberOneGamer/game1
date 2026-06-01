@@ -49,7 +49,7 @@ return function(): Instance
 						end,
 					},
 				}
-			},
+			end,
 		}
 		table.insert(upgradeCards, card)
 	end
