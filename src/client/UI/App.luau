@@ -89,7 +89,7 @@ function App:createNavBar(): Instance
 						Size = UDim2.new(0, 100, 0, 36),
 						BackgroundColor = Color3.fromRGB(50, 50, 60),
 						OnClick = function()
-							self.currentPage:Set("MainHUD")
+							self.currentPage:set("MainHUD")
 						end,
 					},
 					Button {
@@ -97,7 +97,7 @@ function App:createNavBar(): Instance
 						Size = UDim2.new(0, 100, 0, 36),
 						BackgroundColor = Color3.fromRGB(50, 50, 60),
 						OnClick = function()
-							self.currentPage:Set("Shop")
+							self.currentPage:set("Shop")
 						end,
 					},
 					Button {
@@ -105,7 +105,7 @@ function App:createNavBar(): Instance
 						Size = UDim2.new(0, 100, 0, 36),
 						BackgroundColor = Color3.fromRGB(50, 50, 60),
 						OnClick = function()
-							self.currentPage:Set("Upgrades")
+							self.currentPage:set("Upgrades")
 						end,
 					},
 				},

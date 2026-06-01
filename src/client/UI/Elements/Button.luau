@@ -73,10 +73,10 @@ return function(props: ButtonProps): Instance
 			end
 		end,
 		[OnEvent "MouseEnter"] = function()
-			isHovered:Set(true)
+			isHovered:set(true)
 		end,
 		[OnEvent "MouseLeave"] = function()
-			isHovered:Set(false)
+			isHovered:set(false)
 		end,
 	}
 end
