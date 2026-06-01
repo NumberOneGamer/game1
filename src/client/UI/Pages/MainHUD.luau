@@ -9,7 +9,7 @@ local Computed = Fusion.Computed
 
 local ClickController = require(script.Parent.Parent.Parent.Controllers.ClickController)
 local Counter = require(script.Parent.Parent.Elements.Counter)
-local Constants = require(script.Parent.Parent.Parent.Parent.shared.Constants)
+local Constants = require(ReplicatedStorage.Shared.Constants)
 
 return function(): Instance
 	local clickState = ClickController:getState()

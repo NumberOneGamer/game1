@@ -4,8 +4,9 @@ local RunService = game:GetService("RunService")
 local Workspace = game:GetService("Workspace")
 local Players = game:GetService("Players")
 
-local State = require(script.Parent.Parent.Parent.shared.Modules.State)
-local SizeComponent = require(script.Parent.Parent.Parent.shared.Components.SizeComponent)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local State = require(ReplicatedStorage.Shared.Modules.State)
+local SizeComponent = require(ReplicatedStorage.Shared.Components.SizeComponent)
 
 local CameraController = {}
 CameraController.__index = CameraController

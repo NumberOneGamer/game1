@@ -3,10 +3,11 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
 local DataService = require(script.Parent.DataService)
-local Constants = require(script.Parent.Parent.Parent.shared.Constants)
-local Types = require(script.Parent.Parent.Parent.shared.Types)
+local Constants = require(ReplicatedStorage.Shared.Constants)
+local Types = require(ReplicatedStorage.Shared.Types)
 
 local ClickService = {}
 ClickService.__index = ClickService
@@ -74,7 +75,7 @@ function ClickService:checkRebirthEligibility(player: Player): ()
 	if not data then
 		return
 	end
-	local RebirthConfig = require(script.Parent.Parent.Parent.shared.Config.RebirthConfig)
+	local RebirthConfig = require(ReplicatedStorage.Shared.Config.RebirthConfig)
 	local currentTier = data.Rebirths + 1
 	local tier = RebirthConfig[currentTier]
 	if tier and data.Clicks >= tier.minClicks then

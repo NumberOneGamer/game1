@@ -6,7 +6,7 @@ local New = Fusion.New
 local Children = Fusion.Children
 
 local ClickController = require(script.Parent.Parent.Parent.Controllers.ClickController)
-local RebirthConfig = require(script.Parent.Parent.Parent.Parent.shared.Config.RebirthConfig)
+local RebirthConfig = require(ReplicatedStorage.Shared.Config.RebirthConfig)
 local Card = require(script.Parent.Parent.Elements.Card)
 local Button = require(script.Parent.Parent.Elements.Button)
 local Counter = require(script.Parent.Parent.Elements.Counter)

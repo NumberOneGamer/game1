@@ -4,9 +4,10 @@ local Players = game:GetService("Players")
 local DataStoreService = game:GetService("DataStoreService")
 local RunService = game:GetService("RunService")
 
-local State = require(script.Parent.Parent.Parent.shared.Modules.State)
-local Types = require(script.Parent.Parent.Parent.shared.Types)
-local GameConfig = require(script.Parent.Parent.Parent.shared.Config.GameConfig)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local State = require(ReplicatedStorage.Shared.Modules.State)
+local Types = require(ReplicatedStorage.Shared.Types)
+local GameConfig = require(ReplicatedStorage.Shared.Config.GameConfig)
 
 local DataService = {}
 DataService.__index = DataService

@@ -1,9 +1,10 @@
 --!strict
 
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
 local DataService = require(script.Parent.DataService)
-local UpgradeConfig = require(script.Parent.Parent.Parent.shared.Config.UpgradeConfig)
-local Types = require(script.Parent.Parent.Parent.shared.Types)
+local UpgradeConfig = require(ReplicatedStorage.Shared.Config.UpgradeConfig)
+local Types = require(ReplicatedStorage.Shared.Types)
 
 local UpgradeService = {}
 UpgradeService.__index = UpgradeService

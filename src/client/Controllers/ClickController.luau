@@ -4,9 +4,10 @@ local Players = game:GetService("Players")
 local UserInputService = game:GetService("UserInputService")
 local RunService = game:GetService("RunService")
 
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
-local State = require(script.Parent.Parent.Parent.shared.Modules.State)
-local Constants = require(script.Parent.Parent.Parent.shared.Constants)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
+local State = require(ReplicatedStorage.Shared.Modules.State)
+local Constants = require(ReplicatedStorage.Shared.Constants)
 
 local ClickController = {}
 ClickController.__index = ClickController

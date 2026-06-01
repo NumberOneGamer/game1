@@ -3,9 +3,10 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local State = require(script.Parent.Parent.Parent.shared.Modules.State)
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
-local Types = require(script.Parent.Parent.Parent.shared.Types)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local State = require(ReplicatedStorage.Shared.Modules.State)
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
+local Types = require(ReplicatedStorage.Shared.Types)
 
 local UIController = {}
 UIController.__index = UIController

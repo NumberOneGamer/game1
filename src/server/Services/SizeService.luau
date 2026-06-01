@@ -2,10 +2,11 @@
 
 local Players = game:GetService("Players")
 
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
 local DataService = require(script.Parent.DataService)
-local Constants = require(script.Parent.Parent.Parent.shared.Constants)
-local Types = require(script.Parent.Parent.Parent.shared.Types)
+local Constants = require(ReplicatedStorage.Shared.Constants)
+local Types = require(ReplicatedStorage.Shared.Types)
 
 local SizeService = {}
 SizeService.__index = SizeService

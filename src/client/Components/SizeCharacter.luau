@@ -3,9 +3,10 @@
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 
-local State = require(script.Parent.Parent.Parent.shared.Modules.State)
-local Network = require(script.Parent.Parent.Parent.shared.Modules.Network)
-local SizeComponent = require(script.Parent.Parent.Parent.shared.Components.SizeComponent)
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local State = require(ReplicatedStorage.Shared.Modules.State)
+local Network = require(ReplicatedStorage.Shared.Modules.Network)
+local SizeComponent = require(ReplicatedStorage.Shared.Components.SizeComponent)
 
 local SizeCharacter = {}
 SizeCharacter.__index = SizeCharacter
