@@ -2,7 +2,6 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
-local New = Fusion.New
 local OnEvent = Fusion.OnEvent
 local Children = Fusion.Children
 
@@ -46,7 +45,7 @@ return function(props: ButtonProps): Instance
 		end
 		return merged.BackgroundColor
 	end)
-	return New "TextButton" {
+	return scope:New "TextButton" {
 		Size = merged.Size,
 		Position = merged.Position,
 		AnchorPoint = merged.AnchorPoint,
@@ -58,10 +57,10 @@ return function(props: ButtonProps): Instance
 		AutoButtonColor = false,
 		BorderSizePixel = 0,
 		[Children] = {
-			New "UICorner" {
+			scope:New "UICorner" {
 				CornerRadius = merged.CornerRadius,
 			},
-			New "UIPadding" {
+			scope:New "UIPadding" {
 				PaddingTop = UDim.new(0, 8),
 				PaddingBottom = UDim.new(0, 8),
 				PaddingLeft = UDim.new(0, 16),

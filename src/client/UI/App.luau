@@ -5,7 +5,6 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
 local scope = Fusion.scoped(Fusion)
-local New = Fusion.New
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 
@@ -38,7 +37,7 @@ function App:mount(): ()
 	if self.screenGui then
 		self.screenGui:Destroy()
 	end
-	self.screenGui = New "ScreenGui" {
+	self.screenGui = scope:New "ScreenGui" {
 		Name = "GameUI",
 		DisplayOrder = 10,
 		IgnoreGuiInset = true,
@@ -51,7 +50,7 @@ function App:mount(): ()
 end
 
 function App:buildLayout(): Instance
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = UDim2.new(1, 0, 1, 0),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
@@ -63,22 +62,22 @@ function App:buildLayout(): Instance
 end
 
 function App:createNavBar(): Instance
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = UDim2.new(1, 0, 0, 50),
 		Position = UDim2.new(0, 0, 1, -50),
 		BackgroundColor3 = Color3.fromRGB(25, 25, 30),
 		BorderSizePixel = 0,
 		[Children] = {
-			New "UIStroke" {
+			scope:New "UIStroke" {
 				Color = Color3.fromRGB(50, 50, 60),
 				Thickness = 1,
 			},
-			New "Frame" {
+			scope:New "Frame" {
 				Size = UDim2.new(1, -48, 1, 0),
 				Position = UDim2.new(0, 24, 0, 0),
 				BackgroundTransparency = 1,
 				[Children] = {
-					New "UIListLayout" {
+					scope:New "UIListLayout" {
 						FillDirection = Enum.FillDirection.Horizontal,
 						HorizontalAlignment = Enum.HorizontalAlignment.Center,
 						VerticalAlignment = Enum.VerticalAlignment.Center,
@@ -117,13 +116,13 @@ end
 
 function App:createPageContainer(): Instance
 	local currentPage = self.currentPage
-	return New "Frame" {
+	return scope:New "Frame" {
 		Name = "PageContainer",
 		Size = UDim2.new(1, 0, 1, -50),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		[Children] = {
-			New "Frame" {
+			scope:New "Frame" {
 				Name = "MainHUD",
 				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "MainHUD"
@@ -132,7 +131,7 @@ function App:createPageContainer(): Instance
 				BackgroundTransparency = 1,
 				[Children] = { MainHUD() },
 			},
-			New "Frame" {
+			scope:New "Frame" {
 				Name = "Shop",
 				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "Shop"
@@ -141,7 +140,7 @@ function App:createPageContainer(): Instance
 				BackgroundTransparency = 1,
 				[Children] = { Shop() },
 			},
-			New "Frame" {
+			scope:New "Frame" {
 				Name = "Upgrades",
 				Visible = scope:Computed(function(): boolean
 					return currentPage:Get() == "Upgrades"

@@ -2,7 +2,6 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
-local New = Fusion.New
 local Children = Fusion.Children
 
 export type CounterProps = {
@@ -34,13 +33,13 @@ return function(props: CounterProps): Instance
 	local displayValue = scope:Computed(function(): string
 		return tostring(merged.Value())
 	end)
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = merged.Size,
 		Position = merged.Position,
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		[Children] = {
-			New "TextLabel" {
+			scope:New "TextLabel" {
 				Text = merged.Label,
 				Size = UDim2.new(1, 0, 0, 20),
 				Position = UDim2.new(0, 0, 0, 0),
@@ -50,7 +49,7 @@ return function(props: CounterProps): Instance
 				Font = Enum.Font.Gotham,
 				TextXAlignment = Enum.TextXAlignment.Left,
 			},
-			New "TextLabel" {
+			scope:New "TextLabel" {
 				Text = displayValue,
 				Size = UDim2.new(1, 0, 0, 35),
 				Position = UDim2.new(0, 0, 0, 22),

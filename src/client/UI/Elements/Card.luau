@@ -2,7 +2,6 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
-local New = Fusion.New
 local Children = Fusion.Children
 
 export type CardProps = {
@@ -26,20 +25,21 @@ local defaultProps: CardProps = {
 }
 
 return function(props: CardProps): Instance
+	local scope = Fusion.scoped(Fusion)
 	local merged = table.clone(defaultProps)
 	for key, value in props do
 		merged[key] = value
 	end
 	local children: { Instance } = {
-		New "UICorner" {
+		scope:New "UICorner" {
 			CornerRadius = merged.CornerRadius,
 		},
-		New "UIStroke" {
+		scope:New "UIStroke" {
 			Color = Color3.fromRGB(55, 55, 65),
 			Thickness = 1,
 			Transparency = 0.5,
 		},
-		New "UIPadding" {
+		scope:New "UIPadding" {
 			PaddingTop = UDim.new(0, 12),
 			PaddingBottom = UDim.new(0, 12),
 			PaddingLeft = UDim.new(0, 16),
@@ -47,7 +47,7 @@ return function(props: CardProps): Instance
 		},
 	}
 	if merged.Title then
-		table.insert(children, New "TextLabel" {
+		table.insert(children, scope:New "TextLabel" {
 			Text = merged.Title,
 			Size = UDim2.new(1, 0, 0, 30),
 			BackgroundTransparency = 1,
@@ -63,7 +63,7 @@ return function(props: CardProps): Instance
 			table.insert(children, child)
 		end
 	end
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = merged.Size,
 		Position = merged.Position,
 		AnchorPoint = merged.AnchorPoint,

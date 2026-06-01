@@ -2,7 +2,6 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
-local New = Fusion.New
 local Children = Fusion.Children
 
 local ClickController = require(script.Parent.Parent.Parent.Controllers.ClickController)
@@ -12,13 +11,14 @@ local Button = require(script.Parent.Parent.Elements.Button)
 local Counter = require(script.Parent.Parent.Elements.Counter)
 
 return function(): Instance
+	local scope = Fusion.scoped(Fusion)
 	local clickState = ClickController:getState()
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = UDim2.new(1, 0, 1, 0),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
 		[Children] = {
-			New "TextLabel" {
+			scope:New "TextLabel" {
 				Text = "Rebirth & Prestige",
 				Size = UDim2.new(0, 400, 0, 50),
 				Position = UDim2.new(0.5, 0, 0, 24),
@@ -37,7 +37,7 @@ return function(): Instance
 				Position = UDim2.new(0, 24, 0, 80),
 				TextColor = Color3.fromRGB(255, 150, 255),
 			},
-			New "ScrollingFrame" {
+			scope:New "ScrollingFrame" {
 				Size = UDim2.new(1, -48, 0, 400),
 				Position = UDim2.new(0, 24, 0, 160),
 				BackgroundTransparency = 1,
@@ -45,7 +45,7 @@ return function(): Instance
 				ScrollBarThickness = 6,
 				CanvasSize = UDim2.new(0, 0, 0, #RebirthConfig * 120),
 				[Children] = {
-					New "UIListLayout" {
+					scope:New "UIListLayout" {
 						Padding = UDim.new(0, 12),
 						FillDirection = Enum.FillDirection.Vertical,
 						HorizontalAlignment = Enum.HorizontalAlignment.Left,
@@ -60,7 +60,7 @@ return function(): Instance
 								Title = ("Rebirth Tier %d"):format(i),
 								Content = function(): { Instance }
 									return {
-										New "TextLabel" {
+										scope:New "TextLabel" {
 											Text = ("Requires: %s clicks | Multiplier: x%d"):format(
 												tostring(tier.minClicks),
 												tier.multiplier

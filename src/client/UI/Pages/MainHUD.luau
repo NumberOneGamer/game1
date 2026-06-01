@@ -2,7 +2,6 @@
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Fusion = require(ReplicatedStorage.Packages.Fusion)
-local New = Fusion.New
 local Children = Fusion.Children
 local OnEvent = Fusion.OnEvent
 
@@ -11,8 +10,9 @@ local Counter = require(script.Parent.Parent.Elements.Counter)
 local Constants = require(ReplicatedStorage.Shared.Constants)
 
 return function(): Instance
+	local scope = Fusion.scoped(Fusion)
 	local clickState = ClickController:getState()
-	return New "Frame" {
+	return scope:New "Frame" {
 		Size = UDim2.new(1, 0, 1, 0),
 		BackgroundTransparency = 1,
 		BorderSizePixel = 0,
@@ -53,7 +53,7 @@ return function(): Instance
 				Position = UDim2.new(0, 24, 0, 234),
 				TextColor = Color3.fromRGB(255, 150, 255),
 			},
-			New "TextLabel" {
+			scope:New "TextLabel" {
 				Text = "Click anywhere to grow!",
 				Size = UDim2.new(0, 400, 0, 40),
 				Position = UDim2.new(0.5, 0, 0.85, 0),
@@ -64,21 +64,21 @@ return function(): Instance
 				Font = Enum.Font.Gotham,
 				TextTransparency = 0.4,
 			},
-			New "ImageButton" {
+			scope:New "ImageButton" {
 				Size = UDim2.new(0, 120, 0, 120),
 				Position = UDim2.new(0.5, 0, 0.6, 0),
 				AnchorPoint = Vector2.new(0.5, 0.5),
 				BackgroundColor3 = Color3.fromRGB(50, 50, 60),
 				Image = "rbxassetid://0",
 				[Children] = {
-					New "UICorner" {
+					scope:New "UICorner" {
 						CornerRadius = UDim.new(0, 60),
 					},
-					New "UIStroke" {
+					scope:New "UIStroke" {
 						Color = Color3.fromRGB(100, 100, 120),
 						Thickness = 2,
 					},
-					New "TextLabel" {
+					scope:New "TextLabel" {
 						Text = "+1",
 						Size = UDim2.new(1, 0, 1, 0),
 						BackgroundTransparency = 1,
